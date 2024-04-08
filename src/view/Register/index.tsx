@@ -24,10 +24,10 @@ export const RegisterPage = () => {
   return (
     <div className='container'>
       <div className='blur-purple'>
-        <img src={blurViolet} alt='fondo violeata' />
+        <img src={blurViolet} alt='fondo violeta' />
       </div>
       <div className='blur-green'>
-        <img src={blurGreen} alt='fondo verder' />
+        <img src={blurGreen} alt='fondo verde' />
       </div>
       <HeaderPage />
       <main>
