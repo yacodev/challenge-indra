@@ -12,8 +12,6 @@
   --color-grey60: #5E6488;
   --color-grey30: #CCD1EE;
   --gradient-green: linear-gradient(86deg, #00F4E2 0%, #00FF7F 100%);
-  /*text -size*/
-
   /*breakpoints*/
   --breakpoint-xs: 480px;
   --breakpoint-sm: 576px;
@@ -22,3 +20,8 @@
   
 }
 
+$breakpoint-md: 768px;
+$breakpoint-xs: 480px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;

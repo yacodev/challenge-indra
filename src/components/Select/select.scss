@@ -3,8 +3,7 @@
 .select__container {
   width: 100%;
   max-width: 140px;
-  height: 58px;
-  background: white;
+  height: 56px;
   position: relative;
   border-radius: 0.5rem;
 
@@ -18,7 +17,7 @@
     padding: 1rem;
     border: 1px solid var(--color-grey60);
     border-radius: 0.5rem;
-    color: var(--black-primary);
+    background: transparent;
     font-size: 1rem;
     font-weight: 400;
     line-height: 24px;
