@@ -1,0 +1,23 @@
+.footer__container {
+  display: flex;
+  background-color: var(--black-primary);
+  color: var(--white-primary);
+  margin: 0px;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: 110px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  span {
+    font-family: var(--font-sonoma);
+    font-size: 0.875rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+  }
+}
