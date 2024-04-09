@@ -1,0 +1,109 @@
+@import '../../scss/abstracts/variable';
+
+@mixin progressBar($background) {
+  height: 6px;
+  border-radius: 25px;
+  background-color: $background;
+}
+
+@mixin steps-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey10);
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+
+%step-active-desktop {
+  color: #141938;
+  span {
+    border: 2px solid var(--color-violet);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    padding: 2px 8px 2px 8px;
+    align-items: center;
+    background-color: var(--color-violet);
+    color: var(--white-primary);
+    margin-right: 10px;
+  }
+}
+
+%step-desktop {
+  color: var(--color-gray80);
+  span {
+    border: 2px solid var(--color-gray80);
+    border-radius: 50%;
+    width: 25px;
+    height: 20px;
+    appearance: none;
+    padding: 2px 10px 2px 10px;
+    align-items: center;
+    margin-right: 10px;
+  }
+}
+
+
+
+.steps {
+  @include steps-container;
+}
+
+.offer,
+.resume {
+  @extend %step-desktop;
+}
+
+.offer--active,
+.resume--active {
+  @extend %step-active-desktop;
+}
+
+.separador {
+  margin: 10px;
+  color: var(--color-violet);
+  font-weight: 1000;
+}
+
+.steps__mobile {
+  display: none
+}
+
+.steps__mobile--progress-bar {
+  @include progressBar(#D7DBF5);
+  width: 60%;
+}
+
+.progress__bar--step1 {
+  @include progressBar(var(--color-violet));
+  width: 50%;
+}
+
+.progress__bar--step2 {
+  @include progressBar(var(--color-violet));
+  width: 100%;
+}
+
+@media only screen and (max-width: $breakpoint-md) {
+  .steps {
+    display: none;
+    &__mobile{
+      @include steps-container;
+      gap: 8px;
+  
+      span {
+        font-weight: 900;
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+      }
+      &--btn-back{
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
