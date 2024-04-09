@@ -1,0 +1,37 @@
+.policy__section {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center;
+  &--checkbox{
+    padding: 7px;
+    cursor: pointer;
+    background-color: var(--white-primary);
+    background-image: url('../../assets/ic_check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    appearance: none;
+    border: 2px solid var(--black-primary);
+    border-radius: 20%;
+  }
+  &--checkbox:checked {
+    background-color: var(--black-primary);
+  }
+  &--label{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0.1px;
+    
+  }
+}
+
+
+
+@media only screen and (max-width: 900px) {
+
+  .policy__section {
+      width: 100%;
+  }
+
+}
