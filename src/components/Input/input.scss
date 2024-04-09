@@ -31,6 +31,12 @@
   }
 }
 
+.form-section__input-container--no-valid {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--rec-primary)
+}
+
 .error {
   color: var(--rec-primary);
 }
