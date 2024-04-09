@@ -13,7 +13,6 @@ export const Select = ({ hideBorderRadius }: SelectProps) => {
       : hideBorderRadius
   );
 
-  console.log({ selectStyles });
   return (
     <label htmlFor={id} className={selectStyles}>
       <select name='' id={id}>
