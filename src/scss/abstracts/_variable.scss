@@ -1,0 +1,27 @@
+
+:root {
+  /* fonts */
+  --font-sonoma: 'Br Sonoma', sans-serif;
+  /* Colors */
+  --black-primary: #03050F;
+  --black-secondary: #0A051E;
+  --white-primary: #F8F9FF;
+  --rec-primary: #FF1C44;
+  --color-cyan: #00F4E2;
+  --color-green: #00FF7F;
+  --color-grey60: #5E6488;
+  --color-grey30: #CCD1EE;
+  --gradient-green: linear-gradient(86deg, #00F4E2 0%, #00FF7F 100%);
+  /*breakpoints*/
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  
+}
+
+$breakpoint-md: 768px;
+$breakpoint-xs: 480px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
