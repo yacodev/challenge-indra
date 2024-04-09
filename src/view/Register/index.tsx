@@ -31,7 +31,7 @@ export const RegisterPage = () => {
     event.preventDefault();
     if (!error && errorForm.every((form) => form.isValid === true)) {
       userDispatch(currentUser({ ...data, ...stateForm }));
-      navigate('/');
+      navigate('/offer-plan');
     }
   };
 
