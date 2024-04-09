@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { User } from '../models/userModels';
+//import { User } from '../models/userModel';
+import { Plan } from '../models/planModel';
 
 interface UseApiInterface {
   url: string;
@@ -9,7 +10,7 @@ interface UseApiInterface {
 
 export const useApi = ({ url, execute = true }: UseApiInterface) => {
   const [error, setError] = useState<string>('');
-  const [data, setData] = useState<User>();
+  const [data, setData] = useState<Plan>();
 
   useEffect(() => {
     execute && getData();

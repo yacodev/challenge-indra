@@ -5,23 +5,24 @@
   /* Colors */
   --black-primary: #03050F;
   --black-secondary: #0A051E;
+  --black-tertiary: #141938;
   --white-primary: #F8F9FF;
   --rec-primary: #FF1C44;
   --color-cyan: #00F4E2;
   --color-green: #00FF7F;
+  --color-green-10: #389e0d;
+  --color-gray80: #7981B2;
   --color-grey60: #5E6488;
   --color-grey30: #CCD1EE;
+  --color-grey20:#aeacf359;
+  --color-grey10:#EDEFFC;
+  --color-violet:#4F4FFF;
   --gradient-green: linear-gradient(86deg, #00F4E2 0%, #00FF7F 100%);
-  /*breakpoints*/
-  --breakpoint-xs: 480px;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
+
   
 }
-
+/*breakpoints*/
 $breakpoint-md: 768px;
 $breakpoint-xs: 480px;
 $breakpoint-sm: 576px;
-$breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
