@@ -9,7 +9,7 @@ export const planSlice = createSlice({
     age: 0,
   },
   reducers: {
-    setCurrentPlan: (state, action) => {
+    setCurrentPlan: (_, action) => {
       return action.payload;
     },
   },
