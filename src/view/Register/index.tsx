@@ -1,25 +1,64 @@
 import { FooterPage } from '../../components/Footer';
 import { HeaderPage } from '../../components/HeaderPage';
 import hero from '../../assets/hero.png';
-import { useState } from 'react';
+import { ChangeEvent, useReducer, FormEvent } from 'react';
 import { Select } from '../../components/Select';
 import { Input } from '../../components/Input';
 import { Checkbox } from '../../components/Checkbox';
 import { Button } from '../../components/Button';
 import blurViolet from '../../assets/blur-asset.svg';
 import blurGreen from '../../assets/blur-asset2.svg';
-
+import { reducerForm, reducerErrorForm } from '../../utils/reducers';
+import { initialForm, initialErrorForm } from '../../utils/initialValues';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { currentUser } from '../../store/slices/user/userSlice';
+import { API } from '../../utils/api';
+import { useApi } from '../../hooks/useApi';
 import './register.scss';
 
 export const RegisterPage = () => {
-  const [nroDocument, setNroDocument] = useState('');
-  const [phone, setPhone] = useState('');
-  const [checkPrivacy, setCheckPrivacy] = useState(false);
-  const [checkCommunication, setCheckCommunication] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const { data, error } = useApi({ url: API.USER });
+  const navigate = useNavigate();
+  const userDispatch = useDispatch();
+  const [stateForm, dispatchForm] = useReducer(reducerForm, initialForm);
+  const [errorForm, dispatchErrorForm] = useReducer(
+    reducerErrorForm,
+    initialErrorForm
+  );
 
-  console.log(setIsLoading);
-  const handleSubmit = () => {};
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!error && errorForm.every((form) => form.isValid === true)) {
+      userDispatch(currentUser({ ...data, ...stateForm }));
+      navigate('/');
+    }
+  };
+
+  console.log({ stateForm });
+  const handleChange = (
+    e: ChangeEvent<HTMLSelectElement | HTMLInputElement>
+  ) => {
+    dispatchForm({
+      type: 'inputChange',
+      field: e.target.name,
+      payload: e.target.value,
+    });
+
+    if (e.target.value.length < 8) {
+      dispatchErrorForm({
+        type: 'inputError',
+        field: e.target.name,
+        payload: e.target.value,
+      });
+    } else {
+      dispatchErrorForm({
+        type: 'inputValid',
+        field: e.target.name,
+        payload: e.target.value,
+      });
+    }
+  };
 
   return (
     <div className='container'>
@@ -62,37 +101,40 @@ export const RegisterPage = () => {
                 <Input
                   type='number'
                   label='Nro. de documento'
-                  name='nro_document'
+                  name='documentNumber'
                   hideBorderRadius={['tl', 'bl']}
                   hideBorder='left'
-                  value={nroDocument}
-                  onChange={(value) =>
-                    value.length <= 8 && setNroDocument(value)
-                  }
+                  value={stateForm.documentNumber}
+                  onChange={handleChange}
                   required
                   maxLength={8}
                 />
               </div>
+              {!errorForm?.find((v) => v.field === 'documentNumber')
+                ?.isValid && (
+                <span className='form-section__input-container--no-valid'>
+                  * El DNI ingresado no es válido.
+                </span>
+              )}
               <Input
                 type='number'
                 label='Celular'
-                name='phone'
-                value={phone}
-                onChange={(v) => v.length <= 9 && setPhone(v)}
+                name='phoneNumber'
+                value={stateForm.phoneNumber}
+                onChange={handleChange}
                 required
                 maxLength={9}
+                isValidInput={
+                  errorForm?.find((v) => v.field === 'phoneNumber')?.isValid
+                }
+                errorMessage='* El celular ingresado no es válido.'
               />
             </div>
             <div className='info__terms'>
-              <Checkbox
-                label='Acepto la Política de Privacidad'
-                checked={checkPrivacy}
-                setChecked={setCheckPrivacy}
-              />
+              <Checkbox label='Acepto la Política de Privacidad' id='check1' />
               <Checkbox
                 label='Acepto la Política Comunicaciones Comerciales'
-                checked={checkCommunication}
-                setChecked={setCheckCommunication}
+                id='check2'
               />
               <a
                 href='https://www.google.com'
@@ -103,7 +145,7 @@ export const RegisterPage = () => {
               </a>
             </div>
             <div>
-              <Button title='Cotiza aquí' isLoading={isLoading} />
+              <Button title='Cotiza aquí' />
             </div>
           </form>
         </section>
