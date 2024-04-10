@@ -25,7 +25,7 @@ export const SummaryPage = () => {
     <div>
       <HeaderPage />
       <Steps />
-      <button className='offers__container--btn-back' onClick={backOfferPage}>
+      <button className='offers__button--back' onClick={backOfferPage}>
         <img src={backBtnIcon} alt='icono regresar a la vista anterior' />
         <span>Volver</span>
       </button>

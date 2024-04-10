@@ -12,7 +12,7 @@ export const Steps = () => {
   useEffect(() => {
     if (currentStep === '/offer-plan') {
       setStep(1);
-    } else if (currentStep === '/resume') {
+    } else if (currentStep === '/summary') {
       setStep(2);
     }
   }, [currentStep]);
