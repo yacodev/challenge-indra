@@ -19,52 +19,46 @@ Puedes acceder al link desplegado en: https://challenge-indra-rimac.vercel.app
 3. Se mostrará la pantalla final del resumen del seguro.
 
 
-## Estructura de las Carpetas
+## Estructura del repositorio
 
-├── src                     # React - app
-    ├── components
-        ├── Button             # Component
-        ├── Checkbox           # Component
-        ├── Footer             # Component
-        ├── HeaderPage         # Component
-        ├── Input              # Component
-        ├── PersonCard         # Component
-        ├── PlanCard           # Component
-        ├── Select             # Component
-        ├── Steps              # Component
-        ├── SummaryCard        # Component
-    ├── View
-        ├── OfferPlans            # Page show Plans to will select
-        ├── Register              # Page to register user information
-        ├── Summary               # Page show summary plan selected
-    ├── hooks
-        ├── useApi                # Service to get data
-    ├── models
-        ├── formUserModel            # model
-        ├── planModel                # model
-        ├── selectorModel            # model
-        ├── userModel                # model
-    ├── router
-        ├── AppRouter               # navigate
-    ├── scss
-        ├── abstracts               # to variables
-        ├── base                    # base and  reset
-    ├── store
-        ├── slices                  # to plan and  user
-    ├── utils
-        ├── api                     # API constants
-        ├── getAge                  # get age from birthday
-        ├── initialValues           
-        ├── reducers                
-└── README.md                   # README
+This repository has the following  organization:
 
-cada componente esta compuesto por : 
-
-├── component
-        ├── index             # export
-        ├── Component         # Component
-        ├── component.scss    # scss styles
-        ├── types             # Interfaces
+    ├── src                     # React - app
+        ├── components
+            ├── Button             # Component
+            ├── Checkbox           # Component
+            ├── Footer             # Component
+            ├── HeaderPage         # Component
+            ├── Input              # Component
+            ├── PersonCard         # Component
+            ├── PlanCard           # Component
+            ├── Select             # Component
+            ├── Steps              # Component
+            ├── SummaryCard        # Component
+        ├── View
+            ├── OfferPlans            # Page show Plans to will select
+            ├── Register              # Page to register user information
+            ├── Summary               # Page show summary plan selected
+        ├── hooks
+            ├── useApi                # Service to get data
+        ├── models
+            ├── formUserModel            # model
+            ├── xplanModel                # model
+            ├── selectorModel            # model
+            ├── userModel                # model
+        ├── router
+            ├── AppRouter               # navigate
+        ├── scss
+            ├── abstracts               # to variables
+            ├── base                    # base and  reset
+        ├── store
+            ├── slices                  # to plan and  user
+        ├── utils
+            ├── api                     # API constants
+            ├── getAge                  # get age from birthday
+            ├── initialValues           
+            ├── reducers                
+    └── README.md                   # README
 
 ## Run
 
