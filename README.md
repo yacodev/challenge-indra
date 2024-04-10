@@ -10,6 +10,7 @@ Herramientas que se utilizaron:
 
 Puedes acceder al link desplegado en: https://challenge-indra-rimac.vercel.app
 
+![vista ](https://github.com/yacodev/challenge-indra/assets/6935006/430d8678-65ef-4c73-bf36-3af0258707eb)
 ## Explicación de la App
 
 1. En la primera vista, la aplicación le pedirá datos como su número de documento y celular, tambien debe de aceptar las políticas de Privacidad y Comunicaciones comerciales.
