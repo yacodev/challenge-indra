@@ -1,6 +1,6 @@
-import './styles.scss';
 import logo from '../../assets/logo.png';
 import telephone from '../../assets/telephone.svg';
+import './headerPage.scss';
 
 export const HeaderPage = () => {
   return (

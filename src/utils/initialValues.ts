@@ -1,6 +1,6 @@
 import { FormUser, FormUserError } from '../models/formUserModel';
-import IcProtectionLight from '../assets/IcProtectionLight.svg';
-import IcAddUserLight from '../assets/IcAddUserLight.svg';
+import meIcon from '../assets/me-icon.svg';
+import othersIcon from '../assets/others-icon.svg';
 
 export const initialForm: FormUser = {
   typeDocument: 'DNI',
@@ -21,14 +21,14 @@ export const initialErrorForm: FormUserError[] = [
 
 export const initialPersonTypeCard = [
   {
-    img: IcProtectionLight,
+    img: meIcon,
     person: 'Para mí',
     description:
       'Cotiza tu seguro de salud y agrega familiares si así lo deseas.',
     isActive: false,
   },
   {
-    img: IcAddUserLight,
+    img: othersIcon,
     person: 'Para alguien más',
     description:
       'Realiza una cotización para uno de tus familiares o cualquier persona.',
