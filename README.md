@@ -66,6 +66,25 @@ cada componente esta compuesto por :
         ├── component.scss    # scss styles
         ├── types             # Interfaces
 
+## Estructura del repositorio
+
+This repository has the following  organization:
+
+    ├── src                     # React - app
+        ├── components
+            ├── UI                 # UI components: Button, Circle
+            ├── Cart               # Component
+            ├── Footer             # Component
+            ├── Header             # Component
+        ├── Page
+            ├── Details            # Page show Details of pokemon.
+            ├── Home                # Page show all pokemons
+        ├── services
+            ├── data_fecth         # Service to get data
+        ├── static
+            ├── images             # Images to header home pages.
+    └── README.md                   # README
+    
 ## Run
 
 En caso de querer clonar el repositorio y probar localmente, haz lo siguiente:
