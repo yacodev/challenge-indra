@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import userSlice from './slices/user/userSlice';
 import storage from 'redux-persist/lib/storage/session';
 import persistReducer from 'redux-persist/lib/persistReducer';
-//import planSlice from './slices/plan/planSlice';
+import planSlice from './slices/plan/planSlice';
 import {
   FLUSH,
   PAUSE,
@@ -21,7 +21,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userSlice,
-  //plan: planSlice
+  plan: planSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

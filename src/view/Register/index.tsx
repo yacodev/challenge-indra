@@ -35,7 +35,6 @@ export const RegisterPage = () => {
     }
   };
 
-  console.log({ stateForm });
   const handleChange = (
     e: ChangeEvent<HTMLSelectElement | HTMLInputElement>
   ) => {

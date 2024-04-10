@@ -3,6 +3,7 @@
 .offers__container {
   align-items: start;
   min-height: 1200px;
+  gap:10px;
   &--btn-back{
     background-color: transparent;
     border: none;
@@ -11,10 +12,12 @@
     font-size: 18px;
     line-height: 20px;
     letter-spacing: 0.4px;
-    margin-left: 150px;
+    margin-left: 100px;
     padding-top: 30px;
     float: left;
-  
+    span{
+      margin-left: 10px;
+    }
     img {
       height: 100%;
       float: left;

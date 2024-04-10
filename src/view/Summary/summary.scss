@@ -1,0 +1,39 @@
+.summary__container {
+  height: 404px;
+  width: 928px;
+  min-width: 500px;
+  margin-left: 450px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  &--title{
+    height: 48px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.6px;
+    margin-bottom: 48px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .summary__container {
+    min-width: 100px;
+    width: 85%;
+    margin-left: 100px;
+    flex-wrap: wrap;
+    padding-right: 0px;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  .summary__container {
+    min-width: 100px;
+    width: 90%;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    padding-right: 0px;
+  }
+
+}
