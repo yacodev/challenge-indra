@@ -72,19 +72,41 @@ This repository has the following  organization:
 
     ├── src                     # React - app
         ├── components
-            ├── UI                 # UI components: Button, Circle
-            ├── Cart               # Component
+            ├── Button             # Component
+            ├── Checkbox           # Component
             ├── Footer             # Component
-            ├── Header             # Component
-        ├── Page
-            ├── Details            # Page show Details of pokemon.
-            ├── Home                # Page show all pokemons
-        ├── services
-            ├── data_fecth         # Service to get data
-        ├── static
-            ├── images             # Images to header home pages.
+            ├── HeaderPage         # Component
+            ├── Input              # Component
+            ├── PersonCard         # Component
+            ├── PlanCard           # Component
+            ├── Select             # Component
+            ├── Steps              # Component
+            ├── SummaryCard        # Component
+        ├── View
+            ├── OfferPlans            # Page show Plans to will select
+            ├── Register              # Page to register user information
+            ├── Summary               # Page show summary plan selected
+        ├── hooks
+            ├── useApi                # Service to get data
+        ├── models
+            ├── formUserModel            # model
+            ├── xplanModel                # model
+            ├── selectorModel            # model
+            ├── userModel                # model
+        ├── router
+            ├── AppRouter               # navigate
+        ├── scss
+            ├── abstracts               # to variables
+            ├── base                    # base and  reset
+        ├── store
+            ├── slices                  # to plan and  user
+        ├── utils
+            ├── api                     # API constants
+            ├── getAge                  # get age from birthday
+            ├── initialValues           
+            ├── reducers                
     └── README.md                   # README
-    
+
 ## Run
 
 En caso de querer clonar el repositorio y probar localmente, haz lo siguiente:
