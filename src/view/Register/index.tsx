@@ -115,19 +115,21 @@ export const RegisterPage = () => {
                   * El DNI ingresado no es válido.
                 </span>
               )}
-              <Input
-                type='number'
-                label='Celular'
-                name='phoneNumber'
-                value={stateForm.phoneNumber}
-                onChange={handleChange}
-                required
-                maxLength={9}
-                isValidInput={
-                  errorForm?.find((v) => v.field === 'phoneNumber')?.isValid
-                }
-                errorMessage='* El celular ingresado no es válido.'
-              />
+              <div className='info__controls--input'>
+                <Input
+                  type='number'
+                  label='Celular'
+                  name='phoneNumber'
+                  value={stateForm.phoneNumber}
+                  onChange={handleChange}
+                  required
+                  maxLength={9}
+                  isValidInput={
+                    errorForm?.find((v) => v.field === 'phoneNumber')?.isValid
+                  }
+                  errorMessage='* El celular ingresado no es válido.'
+                />
+              </div>
             </div>
             <div className='info__terms'>
               <Checkbox label='Acepto la Política de Privacidad' id='check1' />
