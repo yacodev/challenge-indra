@@ -8,43 +8,63 @@ import { User } from '../../models/userModel';
 import { PersonCard } from '../../components/PersonCard/PersonCard';
 import { useApi } from '../../hooks/useApi';
 import { API } from '../../utils/api';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { initialPersonTypeCard } from '../../utils/initialValues';
 import { PlanList } from '../../models/planModel';
 import { PlanCard } from '../../components/PlanCard/PlanCard';
 import { useDispatch } from 'react-redux';
 import { setCurrentPlan } from '../../store/slices/plan/planSlice';
+import { getAge } from '../../utils/getAge';
 import './offerPlans.scss';
 
 export const OfferPlans = () => {
   const userState = useSelector<StateSelector>((state) => state.user) as User;
   const { data, getData } = useApi({ url: API.PLAN, execute: false });
   const [personTypeCards, setPersonTypeCards] = useState(initialPersonTypeCard);
-  const [dataCards, setDataCards] = useState<PlanList[]>([]);
+  const [plans, setPlans] = useState<PlanList[]>([]);
+  const [showDiscount, setShowDiscount] = useState(false);
   const navigate = useNavigate();
-
   const planDispatch = useDispatch();
 
   const handleSelectPlan = (index: number) => {
-    const newPlanSelected = dataCards[index];
-    console.log('planSelected', newPlanSelected);
+    const newPlanSelected = plans[index];
     planDispatch(setCurrentPlan(newPlanSelected));
     navigate('/summary');
   };
 
-  console.log({ initialPersonTypeCard });
+  const ageUser = useMemo(() => getAge(userState.birthDay), [userState]);
+
+  const showPlans = useMemo(
+    () =>
+      personTypeCards.some(
+        (personTypeCard) => personTypeCard.isActive === true
+      ),
+    [personTypeCards]
+  );
+
   useEffect(() => {
     if (data?.list) {
-      setDataCards(data.list);
+      const newPlans = data.list.filter((plan: PlanList) => plan.age > ageUser);
+      setPlans(newPlans);
     }
-  }, [data]);
+  }, [data, ageUser]);
+
+  useEffect(() => {
+    const newInitialPersonTypeCard = initialPersonTypeCard.map((card) => ({
+      ...card,
+      isActive: false,
+    }));
+    setPersonTypeCards(newInitialPersonTypeCard);
+  }, []);
 
   const selectTypePerson = async (key: number) => {
     const personTypeCardUpdated = personTypeCards.map((card, index) => {
       if (key === index && !card.isActive) {
         card.isActive = true;
+        setShowDiscount(true);
       } else {
         card.isActive = false;
+        setShowDiscount(false);
       }
       return card;
     });
@@ -60,27 +80,32 @@ export const OfferPlans = () => {
     <div>
       <HeaderPage />
       <Steps />
-      <div className='offers__container'>
-        <button
-          className='offers__container--btn-back'
-          onClick={backRegisterPage}
-        >
+      <div className='offers'>
+        <button className='offers__button--back' onClick={backRegisterPage}>
           <img src={backBtnIcon} alt='icono regresar a la vista anterior' />
           <span>Volver</span>
         </button>
 
-        <div className='offers__container--initial-message'>
-          <h1> {userState?.name} ¿Para quién deseas cotizar?</h1>
-          <span>Selecciona la opción que se ajuste más a tus necesidades.</span>
+        <div className='offers__message'>
+          <h1 className='offers__message--title'>
+            {' '}
+            {userState?.name} ¿Para quién deseas cotizar?
+          </h1>
+          <span className='offers__message--description'>
+            Selecciona la opción que se ajuste más a tus necesidades.
+          </span>
         </div>
         <PersonCard
           personTypeCards={personTypeCards}
           selectTypePerson={selectTypePerson}
         />
-        {dataCards.length > 0 &&
-          personTypeCards.some(
-            (personTypeCard) => personTypeCard.isActive === true
-          ) && <PlanCard plans={dataCards} onSelectPlan={handleSelectPlan} />}
+        {showPlans && (
+          <PlanCard
+            plans={plans}
+            onSelectPlan={handleSelectPlan}
+            showDiscount={showDiscount}
+          />
+        )}
       </div>
     </div>
   );

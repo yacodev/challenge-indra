@@ -1,10 +1,10 @@
 
 
-.offers__container {
+.offers {
   align-items: start;
   min-height: 1200px;
   gap:10px;
-  &--btn-back{
+  &__button--back{
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -27,22 +27,34 @@
 
 
 
-.offers__container--initial-message {
+.offers__message {
   text-align: center;
   padding-top: 50px;
   padding-bottom: 30px;
+  &--title{
+    font-size: 28px;
+    font-weight: 700;
+    font-family: var(--font-lato);
+  }
+  &--description{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: var(--font-lato);
+  }
 }
 
-hr {
-  position: relative;
-  margin: 24px 0px 24px 0px;
-  background-color: #d7dbf5;
-  height: 1px;
-  border: none;
-}
 
 @media only screen and (max-width: 900px) {
-  .offer__container--btn-back {
+  .offers__button--back {
     visibility: hidden;
+  }
+  .offers__message {
+    text-align: start;
+    &--title{
+      text-align: start;
+    }
+    &--description{
+      text-align: start;
+    }
   }
 }
