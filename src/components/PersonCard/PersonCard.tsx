@@ -6,30 +6,26 @@ export const PersonCard = ({
   selectTypePerson,
 }: PersonCardProps) => {
   return (
-    <section className='person__card--container'>
+    <section className='card--container'>
       {personTypeCards.map((personTypeCard, key) => {
         return (
           <article
-            className={
-              personTypeCard.isActive
-                ? 'person__card--card-active'
-                : 'person__card--card'
-            }
+            className={personTypeCard.isActive ? 'card card--active' : 'card'}
             onClick={() => selectTypePerson(key)}
             onKeyDown={() => {}}
             key={key}
           >
             <input
               type='checkbox'
-              className='person__card--checkbox'
+              className='card--checkbox'
               checked={personTypeCard.isActive}
               readOnly
               name='check'
             />
-            <img src={personTypeCard.img} alt='nada' />
-            <span>{personTypeCard.person}</span>
+            <img src={personTypeCard.img} alt='icono de la card' />
+            <span className='card--title'>{personTypeCard.person}</span>
 
-            <p>{personTypeCard.description}</p>
+            <p className='card--description'>{personTypeCard.description}</p>
           </article>
         );
       })}

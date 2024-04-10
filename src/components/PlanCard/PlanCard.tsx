@@ -1,55 +1,58 @@
-import { useDispatch } from 'react-redux';
-import { Plan } from '../../models/planModel';
-import { setCurrentPlan } from '../../store/slices/plan/planSlice';
-import { Link } from 'react-router-dom';
 import homeIcon from '../../assets/home-icon.svg';
 import hospitalIcon from '../../assets/hospital-icon.svg';
+import { PlanCardProps } from './types';
 import './planCard.scss';
 
-export const PlanCard = ({ list }: Plan) => {
-  const planDispatch = useDispatch();
-  const handlePlan = (index: number) => {
-    planDispatch(setCurrentPlan(list[index]));
-  };
-
+export const PlanCard = ({
+  plans,
+  onSelectPlan,
+  showDiscount = false,
+}: PlanCardProps) => {
   return (
-    <section className='plan-selection-container'>
-      {list.map((card, index) => {
+    <section className='plan'>
+      {plans.map((plan, index) => {
         return (
-          index < 3 && (
-            <article key={index} className='plan-selection-container__card'>
-              <div
-                className='plan-selection-container__tag'
-                style={{ visibility: index !== 1 ? 'hidden' : 'visible' }}
-              >
-                Plan Recomendado
-              </div>
-              <div className='plan-selection-container__title'>
-                <span>{card.name}</span>
-                <img
-                  src={card.name.includes('Clínica') ? hospitalIcon : homeIcon}
-                  alt=''
-                />
-              </div>
+          <article key={index} className='plan__card'>
+            <div
+              className='plan__card--tag'
+              style={{ visibility: index !== 1 ? 'hidden' : 'visible' }}
+            >
+              Plan Recomendado
+            </div>
+            <div className='plan__card--title'>
+              <span>{plan.name}</span>
+              <img
+                src={plan.name.includes('Clínica') ? hospitalIcon : homeIcon}
+                alt='icono del plan'
+              />
+            </div>
 
-              <span>COSTO DEL PLAN</span>
-              <del>$99 antes</del>
-              <p>${card.price} al mes</p>
-              <hr />
-              <div>
-                <ul className='plan-selection-container__description'>
-                  {card.description.map((d, k) => {
-                    return <li key={k}>{d}</li>;
-                  })}
-                </ul>
-              </div>
-              <Link to='/resume'>
-                <button onClick={() => handlePlan(index)}>
-                  Seleccionar Plan
-                </button>
-              </Link>
-            </article>
-          )
+            <span className='plan__card--plan-name'>COSTO DEL PLAN</span>
+            {showDiscount && (
+              <del className='plan__card--plan-discount'>
+                ${plan.price} antes
+              </del>
+            )}
+            <p className='plan__card--plan-price'>
+              ${showDiscount ? plan.price * 0.95 : plan.price} al mes
+            </p>
+            <hr />
+            <div className='plan__card--description-container'>
+              <ul className='plan__card--description'>
+                {plan.description.map((d, k) => {
+                  return <li key={k}>{d}</li>;
+                })}
+              </ul>
+            </div>
+            <div className='button__container'>
+              <button
+                className='button__plan'
+                onClick={() => onSelectPlan(index)}
+              >
+                Seleccionar Plan
+              </button>
+            </div>
+          </article>
         );
       })}
     </section>

@@ -1,5 +1,5 @@
-import './styles.scss';
 import logoWhite from '../../assets/logo-white.svg';
+import './footer.scss';
 
 export const FooterPage = () => {
   return (

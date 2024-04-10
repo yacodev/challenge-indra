@@ -17,7 +17,7 @@
 }
 
 %step-active-desktop {
-  color: #141938;
+  color: var(--black-tertiary);
   span {
     border: 2px solid var(--color-violet);
     border-radius: 50%;

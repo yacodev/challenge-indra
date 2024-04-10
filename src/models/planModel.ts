@@ -5,6 +5,6 @@ export interface PlanList {
   age: number;
 }
 
-export interface Plan {
+export interface Plans {
   list: PlanList[];
 }
